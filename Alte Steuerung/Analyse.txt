@@ -1,0 +1,29 @@
+Der Motor wird durch eine Gleichstrombremse mit Brückengleichrichter gebremst.
+Wikipedia:
+https://de.wikipedia.org/wiki/Gleichstrombremsen
+Das zweite Bild im Wikipediaartikel bildet wahrscheinlich unsere Schaltung ab.
+
+Sollten wir Herausfinden:
+Geschieht der Richtungswechsel der Scheibe elektrisch? (Zu einer elektrischen Umschaltung lässt sich nichts finden...)
+Oder dreht der Motor nur in eine Richtung und der Richtungswechsel geschieht nachgelagert? Der Text aus dem Angebot lässt darauf schließen, Stichwort "angeblocktes Getriebe": 
+
+-----------------------------
+Technische Angaben:
+Die Quick ist, wie alle JUNG-Schießanlagen, auf rein elektrischer Basis konstruiert. Der Antrieb der Scheiben erfolgt durch einen Elektromotor mit angeblocktem Getriebe. Die Bremsung der Massenkräfte wird materialschonend und mit absoluter Genauigkeit durch Gleichstrom bewirkt. 
+Die Zeitsteuerung erfolgt durch ein elektro- automatisches Kopierwerk, das von einem Synchron-Motor angetrieben wird. Diese Konstruktion ist von Temperatur- und Netzschwankungen völlig unabhängig, sodaß die Scheibendrehung auch bei größter Hitze...
+-----------------------------
+
+Nachmessen:
+Endlagenschalter b11 schaltet die Motorbremse aus (normaly closed)
+Bei ausgeschalteter Anlage am Stecker b12 Pin3 und Pin4 messen und Motor ohne Spannung  drehen - wenn in Endlage, müsste der Schalter öffnen.
+Wie lange wird gebremst? Bei eingeschalteter Anlage am Stecker b12 Pin3 und Pin4 Gleichspannung messen (True RMS Multimeter wird benötigt)
+
+
+
+Wir müssen irgendwie herausfinden ab wann gebremst wird und für wie lange gebremst wird.
+
+
+
+d18 ist das Bremszeitrelais und schaltet über d20 die Bremse ein. Vor d20 befindet sich noch das Arbeitsschütz c1 (normally closed) und d15 (das Relais für Bremsschütz) (normally open).
+d15 wird wiederrum durch b11 (Endlagenschalter) geschaltet.
+Etwas wild...

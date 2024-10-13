@@ -1,0 +1,25 @@
+Funktionsbeschreibung der Drehscheibenanlage:
+
+Die Drehscheibenanlage wird von einer Siemens Logo 8 gesteuert, das Programm wurde mit der Software Logo Soft Comfort 8.4 erstellt. Der Schaltplan wurde mit der Software QElectroTech 8.9 erstellt.
+
+Funktionsübersicht:
+
+Die Logo wird mit 24V versorgt.
+Der Motor der Drehscheibe hat einen 400V Drehstromanschluss und eine Leistungsaufnahme von 250W.
+Der Motor dreht sich nur in eine Richtung. Hinter dem Motor befindet sich ein Gelenk, das sich bei jeder Drehung der Scheibe um 180° dreht.
+Am Ausgangsgelenk des Motors befindet sich der Motorschalter S3, der in den Endstellungen des Motors nicht geschaltet ist. Während der Drehung wird der Schalter S3 aktiv.
+Am Display der Logo (TDE) kann über die Tasten F1 und F2 das gewünschte Programm ausgewählt werden.
+Am kabelgebundenen Bedienteil befinden sich zwei Tasten - "Stellen" und "Programm". "Programm" geht auf Eingang I1 der Logo, "Stellen" geht auf Eingang I2.
+Durch Betätigen der Taste "Stellen" werden die Scheiben um 90° gedreht.
+Durch Betätigen der Taste "Programm" wird das zuvor an der Logo ausgewählte Programm abgespielt.
+
+Funktionsablauf:
+
+Bei Betätigung einer Taste am Bedienteil wird zunächst geprüft, ob der Motorschalter inaktiv ist. Dies wird an den Eingängen I3 und I4 der Logo überprüft. 
+Ist der Motorschalter aktiv, werden die Tastendrücke auf dem Bedienteil ignoriert und die Logo gesperrt - dies wird durch einen Fehlertext auf dem Display signalisiert.
+
+Ist der Motorschalter bei einem Tastendruck inaktiv, wird über den Ausgang Q1 das Motorschütz K1 geschaltet und der Motor dreht sich.
+Sobald der Motorschalter aktiv schaltet, erkennt die Logo dies an den Eingängen I3 und I4, in diesem Fall öffnet der Ausgang Q1 und das Motorschütz K1 fällt ab. Alternativ öffnet der Ausgang Q1 auch nach 300ms - dies dient als Schutzfunktion.
+Unmittelbar danach schließt der Ausgang Q2 und das Bremsschütz K2 zieht an.
+Solange der Motorschalter S3 an den Klemmen 1 und 2 geschlossen ist, fließt ein Strom durch die Motorwicklung (Gleichstrombremse). Die Motorwicklung hat einen Widerstand von 75 Ohm, der Strom wird zusätzlich durch die beiden Leistungswiderstände R1 und R2 begrenzt. 
+Das Bremsschütz K2 fällt nach einem Zeitraum von 880 Millisekunden wieder ab.
